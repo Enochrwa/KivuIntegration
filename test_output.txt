@@ -1,0 +1,92 @@
+
+> kivuims-e2e@1.0.0 cy:run
+> cypress run --spec cypress/e2e/finance/finance-crud-flow.cy.ts
+
+
+DevTools listening on ws://127.0.0.1:59227/devtools/browser/9346ea3a-f4d7-45d0-a41a-fd06270365e8
+Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
+
+Opening `/dev/tty` failed (6): Device not configured
+================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        13.17.0                                                                        │
+  │ Browser:        Electron 118 (headless)                                                        │
+  │ Node Version:   v23.7.0 (/opt/homebrew/Cellar/node/23.7.0/bin/node)                            │
+  │ Specs:          1 found (finance-crud-flow.cy.ts)                                              │
+  │ Searched:       cypress/e2e/finance/finance-crud-flow.cy.ts                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  finance-crud-flow.cy.ts                                                         (1 of 1)
+
+
+  Finance CRUD Flow (admin)
+    1) creates a sales order, issues an invoice, records a payment, and creates a receipt
+
+  Finance CRUD Flow (storeAdmin)
+    2) creates a sales order, issues an invoice, records a payment, and creates a receipt
+
+
+  0 passing (40s)
+  2 failing
+
+  1) Finance CRUD Flow (admin)
+       creates a sales order, issues an invoice, records a payment, and creates a receipt:
+     AssertionError: Timed out retrying after 10000ms: Expected to find element: `[role='dialog']`, but never found it.
+      at Context.eval (webpack://kivuims-e2e/./cypress/e2e/finance/finance-crud-flow.cy.ts:26:0)
+
+  2) Finance CRUD Flow (storeAdmin)
+       creates a sales order, issues an invoice, records a payment, and creates a receipt:
+     AssertionError: Timed out retrying after 10000ms: Expected to find element: `[role='dialog']`, but never found it.
+      at Context.eval (webpack://kivuims-e2e/./cypress/e2e/finance/finance-crud-flow.cy.ts:26:0)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      0                                                                                │
+  │ Failing:      2                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  2                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     40 seconds                                                                       │
+  │ Spec Ran:     finance-crud-flow.cy.ts                                                          │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /Users/christophesina/Documents/Tech Projects/KivuIms/KivuIMSE2E/cypress/screens    (2560x1440)
+     hots/finance-crud-flow.cy.ts/Finance CRUD Flow (admin) -- creates a sales order,               
+      issues an invoice, records a payment, and creates a receipt (failed).png                      
+  -  /Users/christophesina/Documents/Tech Projects/KivuIms/KivuIMSE2E/cypress/screens    (2560x1440)
+     hots/finance-crud-flow.cy.ts/Finance CRUD Flow (storeAdmin) -- creates a sales o               
+     rder, issues an invoice, records a payment, and creates a receipt (failed).png                 
+
+
+  (Video)
+
+  -  Video output: /Users/christophesina/Documents/Tech Projects/KivuIms/KivuIMSE2E/cypress/videos/finance-crud-flow.cy.ts.mp4
+
+
+Opening `/dev/tty` failed (6): Device not configured
+================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✖  finance-crud-flow.cy.ts                  00:40        2        -        2        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✖  1 of 1 failed (100%)                     00:40        2        -        2        -        -  
+

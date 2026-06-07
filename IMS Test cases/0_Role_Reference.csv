@@ -1,0 +1,10 @@
+Role,Scope,Typical use
+COMPANY_ADMIN,Whole company,"Company settings, all stores, employees, categories, list all orders/invoices/payments/receipts"
+STORE_ADMIN,One store,"Store-level staff, products, product items, orders for that store"
+WAREHOUSE_MANAGER,Store,"Inventory, product items, orders, reservations"
+INVENTORY_CLERK,Store,"Product items (create), list products/categories, order reservations"
+SALES_PROCUREMENT,Store,"Sales/purchase orders, scan items, reservations, product item view/transition"
+BUYER,Store,"Procurement (backend may restrict some writes)"
+ANALYST,Read-only,"Dashboards/reports; no create/edit/delete"
+PRIMARY_SUPER_ADMIN,Platform,"Platform-wide config, all companies (admin portal)"
+SECONDARY_SUPER_ADMIN,Platform,"Onboard companies, manage platform (admin portal)"

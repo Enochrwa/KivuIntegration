@@ -1,0 +1,27 @@
+{
+  "name": "kivuims-e2e",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone Cypress E2E tests for Kivu IMS UI (Container + MFEs)",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:debug": "DEBUG=cypress:* cypress run",
+    "cy:run:container": "cypress run --spec \"cypress/e2e/container/**/*.cy.ts\"",
+    "cy:run:inventory": "cypress run --spec \"cypress/e2e/inventory/**/*.cy.ts\"",
+    "cy:run:orders": "cypress run --spec \"cypress/e2e/orders/**/*.cy.ts\"",
+    "cy:run:membership": "cypress run --spec \"cypress/e2e/membership/**/*.cy.ts\""
+  },
+  "dependencies": {
+    "@kivunova/kivufrontendcommon": "^2.12.0"
+  },
+  "devDependencies": {
+    "cypress": "^13.17.0",
+    "cypress-terminal-report": "^7.3.3",
+    "dotenv": "^16.4.5",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
