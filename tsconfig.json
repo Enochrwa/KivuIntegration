@@ -10,7 +10,8 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["cypress", "node"]
+    "types": ["cypress", "node"],
+    "typeRoots": ["node_modules/@types", "cypress/types"]
   },
   "include": ["cypress/**/*.ts"]
 }
