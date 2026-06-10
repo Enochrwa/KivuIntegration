@@ -1,7 +1,7 @@
 /**
  * Tests Create Purchase Order flow.
  * COMMENTED OUT: purchase order flow checks disabled for now.
- * Using describe.skip to exclude these tests from active suite while
+ * Using describe to exclude these tests from active suite while
  * keeping the test code for future activation.
  */
 import { ROUTES } from "../../support/commands";
@@ -16,7 +16,7 @@ const PURCHASE_ORDER_SELECTORS = {
 };
 
 PORTAL_USER_KEYS.forEach((userKey) => {
-  describe.skip(`Orders: Create purchase order flow (${userKey})`, () => {
+  describe(`Orders: Create purchase order flow (${userKey})`, () => {
     beforeEach(() => {
       cy.loginAs(userKey);
       cy.visitMfe(ROUTES.ordersPurchase);
