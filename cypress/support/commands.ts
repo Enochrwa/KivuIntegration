@@ -17,6 +17,7 @@ import {
   PAGE_PORTAL_INVENTORY_PRODUCT,
   PAGE_PORTAL_ORDERS,
   PAGE_PORTAL_ORDERS_SALES_LIST,
+  PAGE_PORTAL_ORDERS_PURCHASE_LIST,
   PAGE_PORTAL_PROFILE,
   PAGE_PORTAL_STORE,
   PORTAL_PREFIX,
@@ -51,6 +52,7 @@ export const ROUTES = {
   inventoryProducts: `${PORTAL_PREFIX}/${PAGE_PORTAL_INVENTORY_PRODUCT}`,
   inventoryCategories: `${PORTAL_PREFIX}/${PAGE_PORTAL_INVENTORY_CATEGORIES}`,
   orders: `${PORTAL_PREFIX}/${PAGE_PORTAL_ORDERS}`,
+  ordersPurchase: `${PORTAL_PREFIX}/${PAGE_PORTAL_ORDERS_PURCHASE_LIST}`,
   finance: `${PORTAL_PREFIX}/${PAGE_PORTAL_FINANCE}`,
   financePayments: `${PORTAL_PREFIX}/${PAGE_PORTAL_FINANCE_PAYMENTS}`,
   financeInvoices: `${PORTAL_PREFIX}/${PAGE_PORTAL_FINANCE_INVOICES}`,
@@ -556,8 +558,7 @@ Cypress.Commands.add("clickSidebarProducts", () => {
 Cypress.Commands.add(
   "clickSidebarSubItem",
   (parentSelector: string, childSelector: string) => {
-    return cy
-      .get("body")
+    cy.get("body")
       .then(($body) => {
         const mounted = $body.find(childSelector).length > 0;
         // Only expand when the child is not in the DOM. If it is mounted but not
@@ -580,8 +581,9 @@ Cypress.Commands.add(
         });
       })
       .then(() => {
-        return cy.get(childSelector).first().click({ force: true });
+        cy.get(childSelector).first().click({ force: true });
       });
+    return cy.wrap(undefined) as Cypress.Chainable<void>;
   }
 );
 

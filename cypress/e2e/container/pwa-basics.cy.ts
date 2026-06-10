@@ -3,12 +3,11 @@ describe("Container: PWA basics", () => {
     cy.visit("/");
     cy.get('link[rel="manifest"]')
       .should("have.attr", "href")
-      .then((href) => {
+      .then((hrefAttr) => {
+        const href = String(hrefAttr);
         const base = Cypress.config("baseUrl") ?? "";
         const resolved =
-          typeof href === "string" && href.startsWith("http")
-            ? href
-            : new URL(String(href), base).href;
+          href.startsWith("http") ? href : new URL(href, base).href;
         cy.request(resolved).its("status").should("eq", 200);
       });
   });

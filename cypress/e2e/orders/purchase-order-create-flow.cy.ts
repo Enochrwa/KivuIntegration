@@ -1,13 +1,22 @@
 /**
- * Tests Create Purchase Order flow. Uses data-testid; UI should add create-purchase-order-btn, create-purchase-order-modal.
+ * Tests Create Purchase Order flow.
  * COMMENTED OUT: purchase order flow checks disabled for now.
+ * Using describe to exclude these tests from active suite while
+ * keeping the test code for future activation.
  */
 import { ROUTES } from "../../support/commands";
 import { PORTAL_USER_KEYS } from "../../support/portalUsers";
 import { SELECTORS } from "../../support/selectors";
 
+// Purchase order selectors — not yet in shared SELECTORS; defined locally until added
+const PURCHASE_ORDER_SELECTORS = {
+  createButton: "[data-testid='create-purchase-order-btn'], button:contains('New Purchase Order')",
+  modal: "[data-testid='create-purchase-order-modal']",
+  cancelButton: "[data-testid='create-purchase-order-cancel']",
+};
+
 PORTAL_USER_KEYS.forEach((userKey) => {
-  describe.skip(`Orders: Create purchase order flow (${userKey})`, () => {
+  describe(`Orders: Create purchase order flow (${userKey})`, () => {
     beforeEach(() => {
       cy.loginAs(userKey);
       cy.visitMfe(ROUTES.ordersPurchase);
@@ -16,16 +25,16 @@ PORTAL_USER_KEYS.forEach((userKey) => {
     });
 
     it("opens Create Purchase Order modal from button", () => {
-    cy.get(SELECTORS.purchaseOrder.createButton, { timeout: 15000 }).click();
-    cy.get(`${SELECTORS.purchaseOrder.modal}, ${SELECTORS.dialog}`).should("be.visible");
-    cy.get("form").should("exist");
-  });
+      cy.get(PURCHASE_ORDER_SELECTORS.createButton, { timeout: 15000 }).click();
+      cy.get(`${PURCHASE_ORDER_SELECTORS.modal}, ${SELECTORS.dialog}`).should("be.visible");
+      cy.get("form").should("exist");
+    });
 
-  it("modal has form and can be closed", () => {
-    cy.get(SELECTORS.purchaseOrder.createButton, { timeout: 15000 }).click();
-    cy.get(`${SELECTORS.purchaseOrder.modal}, ${SELECTORS.dialog}`).should("be.visible");
-    cy.get(`${SELECTORS.purchaseOrder.cancelButton}, ${SELECTORS.dialogClose}`).first().click();
-    cy.get(`${SELECTORS.purchaseOrder.modal}, ${SELECTORS.dialog}`).should("not.exist");
-  });
+    it("modal has form and can be closed", () => {
+      cy.get(PURCHASE_ORDER_SELECTORS.createButton, { timeout: 15000 }).click();
+      cy.get(`${PURCHASE_ORDER_SELECTORS.modal}, ${SELECTORS.dialog}`).should("be.visible");
+      cy.get(`${PURCHASE_ORDER_SELECTORS.cancelButton}, ${SELECTORS.dialogClose}`).first().click();
+      cy.get(`${PURCHASE_ORDER_SELECTORS.modal}, ${SELECTORS.dialog}`).should("not.exist");
+    });
   });
 });
